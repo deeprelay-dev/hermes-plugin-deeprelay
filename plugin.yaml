@@ -1,0 +1,11 @@
+name: deeprelay-provider
+kind: model-provider
+version: 1.0.0
+description: deeprelay - one OpenAI-compatible key for open-weight chat models (DeepSeek, Kimi, GLM, Qwen, MiniMax, Muse, gpt-oss)
+author: deeprelay
+requires_hermes: ">=0.22.0"
+requires_env:
+  - name: DEEPRELAY_API_KEY
+    description: deeprelay API key (create one at deeprelay.ai after signing up)
+    url: https://deeprelay.ai/sign-up
+    secret: true
