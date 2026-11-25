@@ -39,7 +39,8 @@ _TO_XHIGH = ("none", "minimal", "low", "medium", "high", "xhigh")
 
 # Models offered in the picker: id -> (context window in tokens, accepts image input, effort levels).
 # From deeprelay's authenticated GET /v1/models (context_length, the `vision` parameter and
-# reasoning_efforts) on 2026-11-25. Order sets the picker order and the fallback default: deeprelay's
+# reasoning_efforts) on 2026-11-25, corrected by a live probe the same day: Kimi K3 answers 400 to
+# minimal, medium and xhigh although the catalog lists them. Order sets the picker order and the fallback default: deeprelay's
 # coding-agent ranking first, then alphabetical.
 MODELS: dict[str, tuple[int, bool, tuple[str, ...]]] = {
     "deeprelay/deepseek-v4.1-flash": (1_048_576, True, _ALL),
@@ -49,7 +50,7 @@ MODELS: dict[str, tuple[int, bool, tuple[str, ...]]] = {
     "deeprelay/glm-5.2": (1_048_576, False, _TO_XHIGH),
     "deeprelay/glm-5.3-flash": (1_048_576, True, _TO_XHIGH),
     "deeprelay/gpt-oss-120b": (131_072, False, _TO_XHIGH),
-    "deeprelay/kimi-k3": (1_048_576, True, _TO_XHIGH),
+    "deeprelay/kimi-k3": (1_048_576, True, ("none", "low", "high", "max")),
     "deeprelay/minimax-m3.1-flash": (1_048_576, True, _TO_XHIGH),
     "deeprelay/muse-glimmer-30b": (131_072, False, _TO_XHIGH),
     "deeprelay/muse-spark-open-816b-a42b": (1_048_576, False, ("none", "low", "medium", "high", "xhigh")),
